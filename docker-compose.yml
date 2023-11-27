@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  sweeter.server:
+    image: ${DOCKER_REGISTRY-}sweeterserver
+    build:
+      context: .
+      dockerfile: Sweeter.Server/Dockerfile
