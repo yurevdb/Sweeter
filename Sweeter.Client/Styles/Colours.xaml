@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="Primary">#D9AC63</Color>
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+
+    <Color x:Key="Secondary">#0E1F39</Color>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+
+    <Color x:Key="Accent">#D19A42</Color>
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}"/>
+
+    <Color x:Key="Text">#E6EEF9</Color>
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource Text}"/>
+
+    <Color x:Key="TextDark">#171718</Color>
+    <SolidColorBrush x:Key="TextDarkBrush" Color="{StaticResource TextDark}"/>
+
+    <Color x:Key="Background">#040910</Color>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Background}"/>
+
+    <Color x:Key="Success">#63D9AC</Color>
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource Success}"/>
+
+    <Color x:Key="Failure">#D96390</Color>
+    <SolidColorBrush x:Key="FailureBrush" Color="{StaticResource Failure}"/>
+
+</ResourceDictionary>

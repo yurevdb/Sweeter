@@ -11,17 +11,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{436D61CE-FC0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A0AC843F-B1F8-4175-A444-E3B866682F52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Persistence", "Sweeter.Persistence\Sweeter.Persistence.csproj", "{B9FFA064-5E41-450F-B276-E39C7F528FF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Server.Persistence", "Sweeter.Persistence\Sweeter.Server.Persistence.csproj", "{B9FFA064-5E41-450F-B276-E39C7F528FF9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7E7ECA37-A83A-4E69-A859-E955C71AC628}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{06BEFCAF-D208-45FC-9A4B-F246C8C5B246}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{AFAA4D71-2132-4ECC-BFB6-EE282AADCFF2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{AFAA4D71-2132-4ECC-BFB6-EE282AADCFF2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Server", "Sweeter.Server\Sweeter.Server.csproj", "{1BF1428D-1A87-4C94-BD44-B6A574C22BA6}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A03A9038-6CC6-4254-8273-82D9098E1C1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Client.Persistence", "Sweeter.Client.Persistence\Sweeter.Client.Persistence.csproj", "{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C8B38E0-D09F-4564-9529-5F7C11208EF4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +56,10 @@ Global
 		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +72,7 @@ Global
 		{06BEFCAF-D208-45FC-9A4B-F246C8C5B246} = {436D61CE-FC03-492B-8DC0-C05FF7B4F309}
 		{AFAA4D71-2132-4ECC-BFB6-EE282AADCFF2} = {436D61CE-FC03-492B-8DC0-C05FF7B4F309}
 		{1BF1428D-1A87-4C94-BD44-B6A574C22BA6} = {AFAA4D71-2132-4ECC-BFB6-EE282AADCFF2}
+		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9} = {06BEFCAF-D208-45FC-9A4B-F246C8C5B246}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C9DEB774-1B92-4093-A3F4-58FBA51A27FD}

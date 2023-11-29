@@ -7,9 +7,8 @@ namespace Sweeter.Server
 	public class StatusController : ControllerBase
 	{
 		[HttpGet]
-		public async Task<ActionResult<bool>> Get()
+		public ActionResult<bool> Get()
 		{
-			await Task.Delay(0);
 			return true;
 		}
 	}

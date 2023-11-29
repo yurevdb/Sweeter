@@ -2,7 +2,26 @@ version: '3.4'
 
 services:
   sweeter.server:
+    container_name: sweeter-server
     image: ${DOCKER_REGISTRY-}sweeterserver
     build:
       context: .
       dockerfile: Sweeter.Server/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "6650:8080"
+    depends_on:
+      - db.sweeter
+  db.sweeter:
+    container_name: db-sweeter
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: sweeter
+    volumes:
+      - ./data/pgdata/sweeter:/var/lib/postgresql/data
+    ports:
+      - '6651:5432'

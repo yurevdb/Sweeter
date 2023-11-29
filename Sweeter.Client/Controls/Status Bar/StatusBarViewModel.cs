@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
+﻿using MediatR;
+using Sweeter.Client.Persistence;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -7,33 +7,60 @@ namespace Sweeter.Client.WPF
 {
 	public class StatusBarViewModel : INotifyPropertyChanged
 	{
-		private readonly RestClient _restClient;
+		#region Private Members
+
+		private readonly IMediator mediator;
+
+		#endregion
+
+		#region Implementations
 
 		public event PropertyChangedEventHandler? PropertyChanged;
 
 		private void NotifyPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-		public bool IsServerUp { get; private set; }
+		#endregion
 
-		public StatusBarViewModel()
+		#region Public Properties
+
+		public ServerDiagnostics Diagnostics { get; private set; } = new ServerDiagnostics(false, 0);
+
+		#endregion
+
+		#region Constructor
+
+		public StatusBarViewModel(IMediator mediator)
 		{
-			_restClient = new RestClient("http://localhost:6654");
+			this.mediator = mediator;
 
-			GetServerStatus();
+			Task.Run(GetServerStatus);
 		}
 
-		private async void GetServerStatus()
+		#endregion
+
+		#region Private Helpers
+
+		private async Task GetServerStatus()
 		{
-			var request = new RestRequest("api/status");
+			while (true)
+			{
+				try
+				{
+					Diagnostics = mediator.Send(new GetServerStatusQuery()).Result;
+				}
+				catch 
+				{
+					Diagnostics = new ServerDiagnostics(false, 0);
+				}
+				finally
+				{
+					NotifyPropertyChanged(nameof(Diagnostics));
 
-			var result = await _restClient.GetAsync(request);
-
-			if (!result.IsSuccessful)
-				throw new Exception(result.ErrorMessage);
-
-			IsServerUp = JsonConvert.DeserializeObject<bool>(result.Content);
-
-			NotifyPropertyChanged(nameof(IsServerUp));
+					await Task.Delay(10 * 1000);
+				}
+			}
 		}
+
+		#endregion
 	}
 }

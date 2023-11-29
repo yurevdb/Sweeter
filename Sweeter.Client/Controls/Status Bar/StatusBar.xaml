@@ -5,14 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sweeter.Client.WPF"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <local:StatusBarViewModel/>
-    </UserControl.DataContext>
-    <Grid>
-        <TextBlock>
-            <Run Text="Is Server Up:"/>
-            <Run Text="{Binding IsServerUp, Mode=OneWay}"/>
-        </TextBlock>
-    </Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{Binding Source={StaticResource IocContainer}, Path=StatusBarViewModel}">
+    <Border Background="{StaticResource PrimaryBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Width="30"
+                    Background="{Binding Diagnostics.IsUp, Converter={local:BooleanToForegroundConverter}}">
+                <TextBlock Text="{StaticResource FaSignal}"
+                           FontFamily="{StaticResource FaSolid}"
+                           FontSize="{StaticResource FontSizeBody2}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           ToolTip="{Binding Diagnostics.Ping}"/>
+            </Border>
+        </Grid>
+    </Border>
 </UserControl>
