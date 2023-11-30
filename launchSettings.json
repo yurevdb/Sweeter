@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "sweeter.server": "StartDebugging"
+        "sweeter.server": "StartDebugging",
+        "db.sweeter": "StartWithoutDebugging"
       }
     }
   }

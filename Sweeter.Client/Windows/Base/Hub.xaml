@@ -16,9 +16,22 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <Border Padding="24"
+        <Border Padding="{StaticResource Padding}"
                 Grid.Row="0">
-            
+            <UniformGrid Columns="2"
+                         Rows="2">
+                <UniformGrid.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+                        <Setter Property="Margin" Value="{StaticResource Margin}"/>
+                        <Setter Property="FontSize" Value="{StaticResource FontSizeHeading1}"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </UniformGrid.Resources>
+                <Button Content="CRM"/>
+                <Button Content="CPQ"/>
+                <Button Content="Invoicing"/>
+                <Button Content="Production"/>
+            </UniformGrid>
         </Border>
 
         <local:StatusBar Grid.Row="1"/>

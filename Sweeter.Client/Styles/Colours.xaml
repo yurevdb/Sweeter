@@ -19,10 +19,10 @@
     <Color x:Key="Background">#040910</Color>
     <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Background}"/>
 
-    <Color x:Key="Success">#63D9AC</Color>
+    <Color x:Key="Success">#34c28c</Color>
     <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource Success}"/>
 
-    <Color x:Key="Failure">#D96390</Color>
+    <Color x:Key="Failure">#c22537</Color>
     <SolidColorBrush x:Key="FailureBrush" Color="{StaticResource Failure}"/>
 
 </ResourceDictionary>

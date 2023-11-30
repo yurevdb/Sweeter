@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using Microsoft.Extensions.Configuration;
+using Ninject;
 
 namespace Sweeter.Client.WPF
 {
@@ -13,6 +14,11 @@ namespace Sweeter.Client.WPF
         public IocContainer()
         {
             kernel = new StandardKernel(new ViewModelModule(), new Persistence.PersistenceModule());
+            kernel.Bind<IConfiguration>().ToMethod(ctx => {
+                var config = new ConfigurationBuilder();
+                config.AddJsonFile("appsettings.json");
+                return config.Build();
+            });
         }
     }
 }

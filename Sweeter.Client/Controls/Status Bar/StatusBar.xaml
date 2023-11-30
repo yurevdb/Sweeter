@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding Source={StaticResource IocContainer}, Path=StatusBarViewModel}">
-    <Border Background="{StaticResource PrimaryBrush}">
+    <Border Background="{StaticResource AccentBrush}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

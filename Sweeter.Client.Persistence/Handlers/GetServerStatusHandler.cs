@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Diagnostics;
@@ -7,9 +8,16 @@ namespace Sweeter.Client.Persistence
 {
 	public class GetServerStatusHandler : IRequestHandler<GetServerStatusQuery, ServerDiagnostics>
 	{
+		private readonly IConfiguration configuration;
+
+		public GetServerStatusHandler(IConfiguration config)
+		{
+			configuration = config;
+		}
+
 		public async Task<ServerDiagnostics> Handle(GetServerStatusQuery request, CancellationToken cancellationToken)
 		{
-			var _restClient = new RestClient("http://localhost:6650");
+			var _restClient = new RestClient(configuration.GetSection("Server:URL").Value);
 			var req = new RestRequest("api/status");
 
 			var stopwatch = new Stopwatch();

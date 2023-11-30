@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib" 
+                    xmlns:windows="http://schemas.microsoft.com/netfx/2009/xaml/presentation">
+
+    <windows:CornerRadius x:Key="CornerRadius">12</windows:CornerRadius>
+    <Thickness x:Key="Margin">12</Thickness>
+    <Thickness x:Key="Padding">24</Thickness>
+    <Thickness x:Key="ButtonPadding">12 6</Thickness>
+    
+</ResourceDictionary>

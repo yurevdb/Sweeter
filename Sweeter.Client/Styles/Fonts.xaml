@@ -4,8 +4,8 @@
 
     <system:Double x:Key="FontSizeBody2">14</system:Double>
     <system:Double x:Key="FontSizeBody1">18</system:Double>
-    <system:Double x:Key="FontSizeHeading1">28</system:Double>
-    <system:Double x:Key="FontSizeHeading2">22</system:Double>
+    <system:Double x:Key="FontSizeHeading1">32</system:Double>
+    <system:Double x:Key="FontSizeHeading2">24</system:Double>
     
     <FontFamily x:Key="FaSolid">pack://application;,,,/Fonts/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
     <FontFamily x:Key="FaRegular">pack://application;,,,/Fonts/Font Awesome 6 Free-Regular-400.otf#Font Awesome 6 Free Regular</FontFamily>
