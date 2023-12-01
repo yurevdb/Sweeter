@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Sweeter.Client.WPF"
         mc:Ignorable="d"
         Title="Sweeter" 
-        Height="720" 
-        Width="1280"
+        Height="1080" 
+        Width="1920"
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Source={StaticResource IocContainer}, Path=HubViewModel}">
     <Grid Background="{StaticResource BackgroundBrush}">
@@ -18,20 +18,80 @@
 
         <Border Padding="{StaticResource Padding}"
                 Grid.Row="0">
-            <UniformGrid Columns="2"
-                         Rows="2">
-                <UniformGrid.Resources>
-                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
-                        <Setter Property="Margin" Value="{StaticResource Margin}"/>
-                        <Setter Property="FontSize" Value="{StaticResource FontSizeHeading1}"/>
-                        <Setter Property="FontWeight" Value="Bold"/>
-                    </Style>
-                </UniformGrid.Resources>
-                <Button Content="CRM"/>
-                <Button Content="CPQ"/>
-                <Button Content="Invoicing"/>
-                <Button Content="Production"/>
-            </UniformGrid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ItemsControl ItemsSource="{Binding Domains}"
+                              Grid.RowSpan="2">
+                    <ItemsControl.Resources>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+                            <Setter Property="Margin" Value="0 0 12 12"/>
+                            <Setter Property="FontSize"  Value="{StaticResource FontSizeHeading1}"/>
+                            <Setter Property="FontFamily" Value="{StaticResource FaSolid}"/>
+                        </Style>
+                    </ItemsControl.Resources>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Resource}"
+                                    Command="{Binding Command}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Border Grid.Column="1"
+                        Grid.Row="0"
+                        Margin="0 0 0 12"
+                        CornerRadius="{StaticResource CornerRadius}"
+                        Background="{StaticResource PrimaryBrush}"
+                        Padding="{StaticResource ButtonPadding}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Page.Title}"
+                                   FontSize="{StaticResource FontSizeHeading1}"
+                                   VerticalAlignment="Center"
+                                   Foreground="{StaticResource TextDarkBrush}"
+                                   FontWeight="Bold"
+                                   Grid.Column="0"/>
+
+                        <Border Grid.Column="1"
+                                Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                                CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                                Background="{StaticResource SecondaryBrush}">
+                            <TextBlock Text="YV"
+                                       FontSize="{StaticResource FontSizeBody1}"
+                                       Foreground="{StaticResource TextBrush}"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Column="1"
+                      Grid.Row="1">
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=b}"/>
+                    </Grid.OpacityMask>
+                    <Border CornerRadius="{StaticResource CornerRadius}"
+                            Background="White"
+                            Name="b"/>
+
+                    <Frame Background="{StaticResource SecondaryBrush}"
+                           Content="{Binding Page}"
+                           NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </Grid>
         </Border>
 
         <local:StatusBar Grid.Row="1"/>

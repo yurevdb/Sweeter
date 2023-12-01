@@ -48,10 +48,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\CRM\" />
-    <Folder Include="Pages\Invoicing\" />
-    <Folder Include="Pages\Orders\" />
-    <Folder Include="Pages\CPQ\" />
     <Folder Include="Windows\CRM\" />
     <Folder Include="Windows\Invoicing\" />
     <Folder Include="Windows\Orders\" />

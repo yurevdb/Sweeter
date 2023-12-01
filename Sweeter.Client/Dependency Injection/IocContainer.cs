@@ -13,7 +13,7 @@ namespace Sweeter.Client.WPF
 
         public IocContainer()
         {
-            kernel = new StandardKernel(new ViewModelModule(), new Persistence.PersistenceModule());
+            kernel = new StandardKernel(new ViewModelModule(), new Persistence.PersistenceModule(), new ServiceModule());
             kernel.Bind<IConfiguration>().ToMethod(ctx => {
                 var config = new ConfigurationBuilder();
                 config.AddJsonFile("appsettings.json");
