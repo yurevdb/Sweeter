@@ -12,6 +12,7 @@ namespace Sweeter.Client.Persistence
 
 			Bind<IRequestHandler<GetServerStatusQuery, ServerDiagnostics>>().To<GetServerStatusHandler>().InRequestScope();
 			Bind<IRequestHandler<CreateContactCommand>>().To<CreateContactHandler>().InRequestScope();
+			Bind<IRequestHandler<GetAllContactsQuery, IEnumerable<Contact>>>().To<GetAllContactsHandler>().InRequestScope();
 		}
 	}
 }

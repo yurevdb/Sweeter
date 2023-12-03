@@ -1,41 +1,64 @@
 ﻿using MediatR;
+using Sweeter.Client.Persistence;
 using System.Windows.Input;
 
-namespace Sweeter.Client.WPF
-{
-	public class CustomerDashboardViewModel : ViewModel
+namespace Sweeter.Client.WPF;
+
+public class CustomerDashboardViewModel : ViewModel
     {
-		#region Private Members
+	#region Private Members
 
-		private readonly UiService uiService;
-		private readonly IMediator mediator;
+	private readonly UiService uiService;
+	private readonly IMediator mediator;
 
-		#endregion
+	private IEnumerable<Contact> contacts = new List<Contact>();
 
-		#region Public Commands
+	#endregion
 
-		public ICommand CreateContactCommand { get; }
+	#region Public Properties
 
-		#endregion
+	public IEnumerable<Contact> Contacts => contacts.ToList();
 
-		#region Constructor
+	#endregion
 
-		public CustomerDashboardViewModel(IMediator mediator,UiService uiService)
-		{
-			CreateContactCommand = new RelayCommand(CreateContact);
-			this.uiService = uiService;
-			this.mediator = mediator;
-		}
+	#region Public Commands
 
-		#endregion
+	public ICommand CreateContactCommand { get; }
 
-		#region Private Helpers
+	#endregion
 
-		private void CreateContact()
-		{
-			uiService.ShowWizard(new CreateContactWizard(mediator));
-		}
+	#region Constructor
 
-		#endregion
+	public CustomerDashboardViewModel(IMediator mediator,UiService uiService)
+	{
+		CreateContactCommand = new RelayCommand(CreateContact);
+		this.uiService = uiService;
+		this.mediator = mediator;
+
+		Task.Run(GetAllContacts);
 	}
+
+	#endregion
+
+	#region Private Helpers
+
+	private async void CreateContact()
+	{
+		uiService.ShowWizard(new CreateContactWizard(mediator));
+
+		await Task.Delay(500);
+
+		GetAllContacts();
+	}
+
+	private async void GetAllContacts()
+	{
+		var contacts = await mediator.Send(new GetAllContactsQuery());
+
+		this.contacts = contacts;
+
+		NotifyPropertyChanged(nameof(Contacts));
+	}
+
+	#endregion
 }

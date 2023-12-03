@@ -8,3 +8,9 @@ csharp_style_implicit_object_creation_when_type_is_apparent = false
 
 # IDE0290: Use primary constructor
 csharp_style_prefer_primary_constructors = false
+
+# IDE0011: Add braces
+csharp_prefer_braces = when_multiline
+
+# IDE0270: Use coalesce expression
+dotnet_style_coalesce_expression = false
