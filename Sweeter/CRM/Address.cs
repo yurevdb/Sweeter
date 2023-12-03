@@ -14,6 +14,8 @@
 
 		#endregion
 
+		public Address() { }
+
 		public Address(string street, string number, string addition, string city, string state, string country, string zipcode)
 		{
 			Street = street;

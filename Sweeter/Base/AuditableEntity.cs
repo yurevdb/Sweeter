@@ -1,24 +1,33 @@
-﻿namespace Sweeter
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Sweeter
 {
 	public abstract class AuditableEntity: Entity
 	{
-		public DateTime CreatedOn { get; }
+		[Column("created_on")]
+		public DateTimeOffset CreatedOn { get; }
 
+		[Column("created_by")]
+		[MaxLength(64)]
 		public string CreatedBy { get; }
 
-		public DateTime? UpdatedOn { get; private set; }
+		[Column("updated_on")]
+		public DateTimeOffset? UpdatedOn { get; private set; }
 
+		[Column("updated_by")]
+		[MaxLength(64)]
 		public string? UpdatedBy { get; private set; }
 
 		protected AuditableEntity()
 		{
-			CreatedOn = DateTime.Now;
+			CreatedOn = DateTimeOffset.UtcNow;
 			CreatedBy = Environment.UserName;
 		}
 
 		protected void Updated()
 		{
-			UpdatedOn = DateTime.Now;
+			UpdatedOn = DateTimeOffset.UtcNow;
 			UpdatedBy = Environment.UserName;
 		}
 	}

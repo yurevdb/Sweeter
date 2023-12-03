@@ -1,6 +1,6 @@
 ﻿namespace Sweeter
 {
-	public abstract class ValueObject
+	public abstract class ValueObject: Entity
 	{
 		protected static bool EqualOperator(ValueObject left, ValueObject right)
 		{

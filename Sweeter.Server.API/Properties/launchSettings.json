@@ -1,0 +1,13 @@
+{
+    "profiles": {
+        "Docker": {
+            "commandName": "Docker",
+            "httpPort": 6650,
+            "launchBrowser": false,
+            "environmentVariables": {
+                "ASPNETCORE_HTTP_PORTS": "8080"
+            },
+            "publishAllPorts": true
+        }
+    }
+}

@@ -11,6 +11,7 @@ namespace Sweeter.Client.Persistence
 			Bind<IMediator>().To<Mediator>();
 
 			Bind<IRequestHandler<GetServerStatusQuery, ServerDiagnostics>>().To<GetServerStatusHandler>().InRequestScope();
+			Bind<IRequestHandler<CreateContactCommand>>().To<CreateContactHandler>().InRequestScope();
 		}
 	}
 }

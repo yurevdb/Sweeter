@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>a03a9038-6cc6-4254-8273-82d9098e1c1b</ProjectGuid>
+    <ProjectGuid>5a61b6ab-ef96-4c88-a7d1-c57a1aad4749</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.yml" />

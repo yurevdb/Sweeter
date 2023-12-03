@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sweeter.Persistence\Sweeter.Server.Persistence.csproj" />
-    <ProjectReference Include="..\Sweeter.Server\Sweeter.Server.csproj" />
+    <ProjectReference Include="..\Sweeter.Server.API\Sweeter.Server.API.csproj" />
     <ProjectReference Include="..\Sweeter\Sweeter.csproj" />
   </ItemGroup>
 

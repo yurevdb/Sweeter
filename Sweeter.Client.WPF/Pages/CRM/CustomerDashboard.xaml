@@ -1,0 +1,49 @@
+﻿<Page x:Class="Sweeter.Client.WPF.CustomerDashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sweeter.Client.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Contacts"
+      DataContext="{Binding Source={StaticResource IocContainer}, Path=CustomerDashboardViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Margin="{StaticResource Margin}"
+                    Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+                    <Setter Property="Margin" Value="0 0 12 0"/>
+                </Style>
+            </StackPanel.Resources>
+            <Button Content="Create"
+                    Command="{Binding CreateContactCommand}"/>
+        </StackPanel>
+
+        <ItemsControl Grid.Row="1"
+                      Margin="{StaticResource Margin}">
+            
+        </ItemsControl>
+
+        <Border Grid.Row="2"
+                Margin="{StaticResource Margin}">
+            <TextBlock FontSize="{StaticResource FontSizeBody1}"
+                       Foreground="{StaticResource TextBrush}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center">
+                <Run Text="&lt;"/>
+                <Run Text="1"/>
+                <Run Text="2"/>
+                <Run Text="3"/>
+                <Run Text=">"/>
+            </TextBlock>
+        </Border>
+    </Grid>
+</Page>

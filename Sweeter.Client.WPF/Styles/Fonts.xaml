@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <system:Double x:Key="FontSizeBody2">14</system:Double>
+    <system:Double x:Key="FontSizeBody1">18</system:Double>
+    <system:Double x:Key="FontSizeHeading1">32</system:Double>
+    <system:Double x:Key="FontSizeHeading2">24</system:Double>
+    
+    <FontFamily x:Key="FaSolid">pack://application;,,,/Fonts/Font Awesome 6 Free-Solid-900.otf#Font Awesome 6 Free Solid</FontFamily>
+    <FontFamily x:Key="FaRegular">pack://application;,,,/Fonts/Font Awesome 6 Free-Regular-400.otf#Font Awesome 6 Free Regular</FontFamily>
+
+    <system:String x:Key="FaSignal">&#xf012;</system:String>
+    <system:String x:Key="FaCheck">&#xf00c;</system:String>
+    <system:String x:Key="FaHome">&#xf015;</system:String>
+    <system:String x:Key="FaUsers">&#xf0c0;</system:String>
+    <system:String x:Key="FaFileContract">&#xf56c;</system:String>
+    <system:String x:Key="FaFileInvoice">&#xf570;</system:String>
+    <system:String x:Key="FaIndustry">&#xf275;</system:String>
+
+    <Style x:Key="BaseTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeBody1}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlock}"/>
+
+</ResourceDictionary>

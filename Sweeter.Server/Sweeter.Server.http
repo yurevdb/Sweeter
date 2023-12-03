@@ -1,5 +1,0 @@
-@Sweeter.Server_HostAddress = http://localhost:6650
-
-GET {{Sweeter.Server_HostAddress}}/api/status/
-
-###

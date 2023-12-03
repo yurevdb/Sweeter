@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Client.WPF", "Sweeter.Client\Sweeter.Client.WPF.csproj", "{92CD9DD1-ADCA-41AC-A1FC-238F9AA25393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Client.WPF", "Sweeter.Client.WPF\Sweeter.Client.WPF.csproj", "{92CD9DD1-ADCA-41AC-A1FC-238F9AA25393}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter", "Sweeter\Sweeter.csproj", "{4DA9BF39-807E-4E71-8BC4-FFA29169657A}"
 EndProject
@@ -19,9 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{06BEFC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{AFAA4D71-2132-4ECC-BFB6-EE282AADCFF2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Server", "Sweeter.Server\Sweeter.Server.csproj", "{1BF1428D-1A87-4C94-BD44-B6A574C22BA6}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A03A9038-6CC6-4254-8273-82D9098E1C1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Server.API", "Sweeter.Server.API\Sweeter.Server.API.csproj", "{1BF1428D-1A87-4C94-BD44-B6A574C22BA6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Client.Persistence", "Sweeter.Client.Persistence\Sweeter.Client.Persistence.csproj", "{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}"
 EndProject
@@ -33,6 +31,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Client.Testing", "Sweeter.Client.Testing\Sweeter.Client.Testing.csproj", "{6F180988-D366-4122-BF82-44B4CEFBC67D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sweeter.Server.Testing", "Sweeter.Server.Testing\Sweeter.Server.Testing.csproj", "{A7131DD4-0A76-4247-9847-E8CB67F3589F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,26 +128,6 @@ Global
 		{1BF1428D-1A87-4C94-BD44-B6A574C22BA6}.Release|x64.Build.0 = Release|Any CPU
 		{1BF1428D-1A87-4C94-BD44-B6A574C22BA6}.Release|x86.ActiveCfg = Release|Any CPU
 		{1BF1428D-1A87-4C94-BD44-B6A574C22BA6}.Release|x86.Build.0 = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|ARM.Build.0 = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|x64.Build.0 = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Debug|x86.Build.0 = Debug|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|ARM.Build.0 = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|ARM64.Build.0 = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|x64.ActiveCfg = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|x64.Build.0 = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|x86.ActiveCfg = Release|Any CPU
-		{A03A9038-6CC6-4254-8273-82D9098E1C1B}.Release|x86.Build.0 = Release|Any CPU
 		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB774F08-5E87-4D21-ACB8-E951DB64D8D9}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -208,6 +188,26 @@ Global
 		{A7131DD4-0A76-4247-9847-E8CB67F3589F}.Release|x64.Build.0 = Release|Any CPU
 		{A7131DD4-0A76-4247-9847-E8CB67F3589F}.Release|x86.ActiveCfg = Release|Any CPU
 		{A7131DD4-0A76-4247-9847-E8CB67F3589F}.Release|x86.Build.0 = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|x64.Build.0 = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|ARM.Build.0 = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|ARM64.Build.0 = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|x64.ActiveCfg = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|x64.Build.0 = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A61B6AB-EF96-4C88-A7D1-C57A1AAD4749}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

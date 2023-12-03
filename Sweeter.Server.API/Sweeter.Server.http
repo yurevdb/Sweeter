@@ -1,0 +1,23 @@
+@Sweeter.Server_HostAddress = http://localhost:6650
+
+GET {{Sweeter.Server_HostAddress}}/api/status/
+###
+
+POST {{Sweeter.Server_HostAddress}}/api/contact
+Content-Type: application/json
+
+{
+    "Contact":{
+        "FirstName": "Hello World",
+        "LastName": "McTest",
+        "Email": "t@t",
+        "PhoneNumber": "TTTTTT",
+        "CreatedOn": "2023-12-3 13:21:00+01",
+        "CreatedBy": "yure"
+    }
+}
+###
+
+GET {{Sweeter.Server_HostAddress}}/api/contact/getall
+###
+

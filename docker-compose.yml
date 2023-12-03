@@ -1,12 +1,12 @@
 version: '3.4'
 
 services:
-  sweeter.server:
-    container_name: sweeter-server
+  sweeter.server.api:
+    container_name: sweeter-server-api
     image: ${DOCKER_REGISTRY-}sweeterserver
     build:
       context: .
-      dockerfile: Sweeter.Server/Dockerfile
+      dockerfile: Sweeter.Server.api/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
