@@ -19,120 +19,151 @@
         <Border Padding="{StaticResource Padding}"
                 Grid.Row="0">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="90"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <ListBox ItemsSource="{Binding Domains}"
-                         Grid.RowSpan="2"
-                         Background="Transparent"
-                         BorderBrush="Transparent"
-                         BorderThickness="0"
-                         SelectedIndex="0"
-                         SelectionChanged="ListBox_SelectionChanged">
-                    <ListBox.Resources>
-                        <Style TargetType="{x:Type TextBlock}" x:Key="tb">
-                            <Setter Property="FontSize"  Value="{StaticResource FontSizeHeading1}"/>
-                            <Setter Property="FontFamily" Value="{StaticResource FaSolid}"/>
-                            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
-                            <Setter Property="HorizontalAlignment" Value="Center"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsMouseOver}" Value="True">
-                                    <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
-                                    <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                        <Style TargetType="{x:Type Border}" x:Key="b">
-                            <Setter Property="Padding" Value="{StaticResource ButtonPadding}"/>
-                            <Setter Property="Margin" Value="0 0 12 12"/>
-                            <Setter Property="CornerRadius" Value="{StaticResource CornerRadius}"/>
-                            <Setter Property="Background" Value="{StaticResource SecondaryBrush}"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
-                                    <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsMouseOver}" Value="True">
-                                    <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.Resources>
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="{x:Type ListBoxItem}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                        <ContentPresenter/>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Style="{StaticResource b}">
-                                <TextBlock Text="{Binding Resource}"
-                                           Style="{StaticResource tb}"/>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ListBox>
+                <Grid Grid.Row="0"
+                      Margin="0 0 0 24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border Grid.Column="0"
+                            CornerRadius="{StaticResource CornerRadius1}"
+                            Background="{StaticResource SecondaryBrush}"
+                            Padding="{StaticResource ButtonPadding}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="1"
-                        Grid.Row="0"
-                        Margin="0 0 0 12"
-                        CornerRadius="{StaticResource CornerRadius}"
-                        Background="{StaticResource PrimaryBrush}"
-                        Padding="{StaticResource ButtonPadding}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Text="{Binding Page.Title}"
-                                   FontSize="{StaticResource FontSizeHeading1}"
-                                   VerticalAlignment="Center"
-                                   Foreground="{StaticResource TextDarkBrush}"
-                                   FontWeight="Bold"
-                                   Grid.Column="0"/>
-
-                        <Border Grid.Column="1"
-                                Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
-                                CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
-                                Background="{StaticResource SecondaryBrush}">
-                            <TextBlock Text="YV"
-                                       FontSize="{StaticResource FontSizeBody1}"
+                            <TextBlock Text="{Binding Page.Title}"
+                                       FontSize="{StaticResource FontSizeHeading1}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
                                        Foreground="{StaticResource TextBrush}"
                                        FontWeight="Bold"
+                                       Grid.Column="0"/>
+
+                            <ListBox ItemsSource="{Binding Domains}"
+                                     Background="Transparent"
+                                     BorderBrush="Transparent"
+                                     BorderThickness="0"
+                                     SelectedIndex="0"
+                                     Grid.Column="1"
+                                     SelectionChanged="ListBox_SelectionChanged">
+                                <ListBox.Resources>
+                                    <Style TargetType="{x:Type TextBlock}" x:Key="tb">
+                                        <Setter Property="FontSize"  Value="{StaticResource FontSizeHeading1}"/>
+                                        <Setter Property="FontFamily" Value="{StaticResource FaSolid}"/>
+                                        <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                    <Style TargetType="{x:Type Border}" x:Key="b">
+                                        <Setter Property="Padding" Value="{StaticResource ButtonPadding}"/>
+                                        <Setter Property="Margin" Value="12 0"/>
+                                        <Setter Property="CornerRadius" Value="{StaticResource CornerRadius1}"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ListBox.Resources>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListBoxItem}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                                    <ContentPresenter/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Style="{StaticResource b}"
+                                                Width="120">
+                                            <TextBlock Text="{Binding Resource}"
+                                                       Style="{StaticResource tb}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Margin="24 0 0 0"
+                            Background="{StaticResource SecondaryBrush}"
+                            CornerRadius="{StaticResource CornerRadius1}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="Yuré Vanderbruggen"
+                                       Grid.Column="0"
+                                       Style="{StaticResource BaseTextBlock}"
                                        VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"/>
-                        </Border>
-                    </Grid>
-                </Border>
+                                       Foreground="{StaticResource TextBrush}"
+                                       FontSize="{StaticResource FontSizeHeading1}"
+                                       Margin="12 0"
+                                       FontWeight="Bold"/>
+
+                            <Border Width="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                                    CornerRadius="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualHeight}"
+                                    Background="{StaticResource PrimaryBrush}"
+                                    Grid.Column="1"
+                                    Margin="12 6">
+                                <TextBlock Text="YV"
+                                           FontSize="{StaticResource FontSizeHeading1}"
+                                           Foreground="{StaticResource TextDarkBrush}"
+                                           FontWeight="Bold"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
 
                 <Grid Grid.Column="1"
                       Grid.Row="1">
                     <Grid.OpacityMask>
                         <VisualBrush Visual="{Binding ElementName=b}"/>
                     </Grid.OpacityMask>
-                    <Border CornerRadius="{StaticResource CornerRadius}"
+                    <Border CornerRadius="{StaticResource CornerRadius1}"
                             Background="White"
                             Name="b"/>
-
-                    <Frame Background="{StaticResource SecondaryBrush}"
-                           Content="{Binding Page}"
-                           NavigationUIVisibility="Hidden"/>
+                    <Frame Content="{Binding Page}"
+                           NavigationUIVisibility="Hidden"
+                           Background="{StaticResource SecondaryBrush}"/>
                 </Grid>
             </Grid>
         </Border>

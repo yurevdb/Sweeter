@@ -19,6 +19,17 @@
     <Color x:Key="Background">#040910</Color>
     <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Background}"/>
 
+    <RadialGradientBrush GradientOrigin="0.6,1"
+                         Center="0.6,1"
+                         RadiusX="0.7"
+                         RadiusY="0.7"
+                         x:Key="Gradient">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="{StaticResource Primary}" Offset="0"/>
+            <GradientStop Color="{StaticResource Background}" Offset="1"/>
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+
     <Color x:Key="Success">#34c28c</Color>
     <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource Success}"/>
 

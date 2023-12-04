@@ -12,7 +12,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Padding="{TemplateBinding Padding}"
-                            CornerRadius="{StaticResource CornerRadius}"
+                            CornerRadius="{StaticResource CornerRadius2}"
                             Background="{TemplateBinding Background}">
                         <TextBlock Text="{TemplateBinding Content}"
                                    HorizontalAlignment="Center"

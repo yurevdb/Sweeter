@@ -3,7 +3,8 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib" 
                     xmlns:windows="http://schemas.microsoft.com/netfx/2009/xaml/presentation">
 
-    <windows:CornerRadius x:Key="CornerRadius">12</windows:CornerRadius>
+    <windows:CornerRadius x:Key="CornerRadius1">24</windows:CornerRadius>
+    <windows:CornerRadius x:Key="CornerRadius2">12</windows:CornerRadius>
     <Thickness x:Key="Margin">12</Thickness>
     <Thickness x:Key="Padding">24</Thickness>
     <Thickness x:Key="ButtonPadding">12 6</Thickness>
