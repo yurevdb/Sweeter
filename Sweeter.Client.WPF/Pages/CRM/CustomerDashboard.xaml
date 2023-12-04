@@ -27,34 +27,55 @@
                     Command="{Binding CreateContactCommand}"/>
         </StackPanel>
 
-        <ItemsControl Grid.Row="1"
-                      Margin="{StaticResource Margin}"
-                      ItemsSource="{Binding Contacts}"
-                      Grid.IsSharedSizeScope="True">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" SharedSizeGroup="name"/>
-                            <ColumnDefinition Width="Auto" SharedSizeGroup="email"/>
-                            <ColumnDefinition Width="Auto" SharedSizeGroup="phone"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Column="0"
-                                   Text="{Binding}"
-                                   Foreground="{StaticResource TextBrush}"
-                                   Margin="0 0 24 0"/>
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Email}"
-                                   Foreground="{StaticResource TextBrush}"
-                                   Margin="0 0 24 0"/>
-                        <TextBlock Grid.Column="2"
-                                   Text="{Binding PhoneNumber}"
-                                   Foreground="{StaticResource TextBrush}"
-                                   Margin="0 0 24 0"/>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <DataGrid ItemsSource="{Binding Contacts}"
+                  Margin="{StaticResource Margin}"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  SelectionMode="Single"
+                  Background="Transparent"
+                  CanUserAddRows="False"
+                  CanUserSortColumns="True"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="True"
+                  CanUserResizeColumns="True"
+                  IsReadOnly="True"
+                  BorderBrush="Transparent"
+                  BorderThickness="0"
+                  GridLinesVisibility="Vertical"
+                  VerticalGridLinesBrush="{StaticResource TextBrush}"
+                  HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Email"
+                                    Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone Number"
+                                    Binding="{Binding PhoneNumber}"
+                                    Width="*"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="FontSize" Value="{StaticResource FontSizeBody1}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Padding" Value="6 6 12 6"/>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="BorderThickness" Value="0 0 1 1"/>
+                    <Setter Property="FontSize" Value="{StaticResource FontSizeHeading2}"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Padding" Value="6 6 12 6"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
     </Grid>
 </Page>

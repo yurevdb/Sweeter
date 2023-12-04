@@ -3,7 +3,7 @@
 GET {{Sweeter.Server_HostAddress}}/api/status/
 ###
 
-POST {{Sweeter.Server_HostAddress}}/api/contact
+POST {{Sweeter.Server_HostAddress}}/api/contacts
 Content-Type: application/json
 
 {
@@ -18,6 +18,5 @@ Content-Type: application/json
 }
 ###
 
-GET {{Sweeter.Server_HostAddress}}/api/contact/getall
+GET {{Sweeter.Server_HostAddress}}/api/contacts
 ###
-

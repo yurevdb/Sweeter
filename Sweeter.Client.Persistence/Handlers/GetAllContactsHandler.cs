@@ -16,7 +16,7 @@ public class GetAllContactsHandler : IRequestHandler<GetAllContactsQuery, IEnume
 	public async Task<IEnumerable<Contact>> Handle(GetAllContactsQuery request, CancellationToken cancellationToken)
 	{
 		var _restClient = new RestClient(configuration.GetSection("Server:URL").Value);
-		var req = new RestRequest("api/contact/getall", Method.Get);
+		var req = new RestRequest("api/contacts", Method.Get);
 
 		var result = await _restClient.GetAsync<IEnumerable<Contact>>(req, cancellationToken);
 

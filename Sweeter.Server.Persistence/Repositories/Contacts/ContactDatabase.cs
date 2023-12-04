@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using System.Data;
 
 namespace Sweeter.Server.Persistence;
 
@@ -8,12 +9,9 @@ public class ContactDatabase : ContactRepository
 {
 	private readonly IConfiguration configuration;
 
-	private readonly NpgsqlConnection connection;
-
 	public ContactDatabase(IConfiguration configuration)
 	{
 		this.configuration = configuration;
-		this.connection = new NpgsqlConnection(configuration.GetConnectionString("CRM"));
 	}
 	public Task Delete(Contact entity)
 	{
@@ -22,15 +20,8 @@ public class ContactDatabase : ContactRepository
 
 	public async Task<IEnumerable<Contact>> GetAll()
 	{
-		try
-		{
-			await connection.OpenAsync();
-			return await connection.QueryAsync<Contact>("select id as Id, first_name as FirstName, last_name as LastName, email as Email, phone_number as PhoneNumber, created_on as CreatedOn, created_by as CreatedBy, updated_on as UpdatedOn, updated_by as UpdatedBy from public.contact");
-		}
-		finally
-		{
-			await connection.CloseAsync();
-		}
+		using IDbConnection connection = new NpgsqlConnection(configuration.GetConnectionString("CRM"));
+		return await connection.QueryAsync<Contact>("select id as Id, first_name as FirstName, last_name as LastName, email as Email, phone_number as PhoneNumber, created_on as CreatedOn, created_by as CreatedBy, updated_on as UpdatedOn, updated_by as UpdatedBy from public.contact");
 	}
 
 	public async Task Insert(Contact entity)
@@ -43,15 +34,8 @@ public class ContactDatabase : ContactRepository
 		parameters.Add("createdon", entity.CreatedOn);
 		parameters.Add("createdby", entity.CreatedBy);
 
-		try
-		{
-			await connection.OpenAsync();
-			await connection.QueryAsync("contact_insert", parameters, commandType: System.Data.CommandType.StoredProcedure);
-		}
-		finally
-		{
-			await connection.CloseAsync();
-		}
+		using IDbConnection connection = new NpgsqlConnection(configuration.GetConnectionString("CRM"));
+		await connection.ExecuteAsync("contact_insert", parameters, commandType: CommandType.StoredProcedure);
 	}
 
 	public Task Update(Contact entity)

@@ -10,7 +10,9 @@
         Width="640"
         Background="{StaticResource BackgroundBrush}"
         WindowStartupLocation="CenterScreen"
-        d:DataContext="{Binding Source={x:Static local:WizardDesignViewModel.Instance}}">
+        d:DataContext="{Binding Source={x:Static local:WizardDesignViewModel.Instance}}"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
     <Border Padding="{StaticResource Padding}">
         <Grid>
             <Grid.RowDefinitions>

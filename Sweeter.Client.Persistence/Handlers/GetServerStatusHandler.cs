@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using RestSharp;
 using System.Diagnostics;
 
@@ -31,9 +30,7 @@ namespace Sweeter.Client.Persistence
 			if(result.Content  == null)
 				throw new Exception("No content received");
 
-			var isup = JsonConvert.DeserializeObject<bool>(result.Content);
-
-			return new ServerDiagnostics(isup, stopwatch.ElapsedMilliseconds);
+			return new ServerDiagnostics(true, stopwatch.ElapsedMilliseconds);
 		}
 	}
 }

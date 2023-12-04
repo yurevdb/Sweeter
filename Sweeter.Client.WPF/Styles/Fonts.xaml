@@ -23,6 +23,6 @@
         <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}"/>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlock}"/>
+    <!--<Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlock}"/>-->
 
 </ResourceDictionary>

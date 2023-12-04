@@ -5,7 +5,7 @@ using System.Windows.Input;
 namespace Sweeter.Client.WPF;
 
 public class CustomerDashboardViewModel : ViewModel
-    {
+{
 	#region Private Members
 
 	private readonly UiService uiService;
@@ -44,20 +44,34 @@ public class CustomerDashboardViewModel : ViewModel
 
 	private async void CreateContact()
 	{
-		uiService.ShowWizard(new CreateContactWizard(mediator));
+		try
+		{
+			uiService.ShowWizard(new CreateContactWizard(mediator));
 
-		await Task.Delay(500);
+			await Task.Delay(100);
 
-		GetAllContacts();
+			GetAllContacts();
+		}
+		catch(Exception ex)
+		{
+			var x = ex;
+		}
 	}
 
 	private async void GetAllContacts()
 	{
-		var contacts = await mediator.Send(new GetAllContactsQuery());
+		try
+		{
+			var contacts = await mediator.Send(new GetAllContactsQuery());
 
-		this.contacts = contacts;
+			this.contacts = contacts;
 
-		NotifyPropertyChanged(nameof(Contacts));
+			NotifyPropertyChanged(nameof(Contacts));
+		}
+		catch (Exception ex)
+		{
+			var x = ex;
+		}
 	}
 
 	#endregion

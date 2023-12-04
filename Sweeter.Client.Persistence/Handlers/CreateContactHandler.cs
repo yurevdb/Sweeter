@@ -17,7 +17,7 @@ namespace Sweeter.Client.Persistence
 		public async Task Handle(CreateContactCommand request, CancellationToken cancellationToken)
 		{
 			var _restClient = new RestClient(configuration.GetSection("Server:URL").Value);
-			var req = new RestRequest("api/contact", Method.Post);
+			var req = new RestRequest("api/contacts", Method.Post);
 
 			req.AddJsonBody(new CreateContactRequest(request.Contact));
 
